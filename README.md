@@ -39,7 +39,7 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 |------------|--------|
 | **CPU** | AMD Ryzen 7 5700U (8C/16T, Zen 2 / Renoir) |
 | **iGPU** | AMD Radeon Vega Series (Renoir/Cezanne) |
-| **Áudio** | Realtek ALC256 (layout-id: `13`) |
+| **Áudio** | Realtek ALC256 (layout-id: `14`) |
 | **Wi-Fi** | Intel Wireless (AirportItlwm) |
 | **Bluetooth** | Intel Bluetooth (IntelBluetoothFirmware) |
 | **Ethernet** | Realtek RTL8111 |
@@ -55,7 +55,7 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 ## ✅ O que Funciona
 
 - [x] **Aceleração Gráfica** — iGPU AMD Vega com suporte completo via NootedRed
-- [x] **Áudio** — Saída de áudio interno e fones de ouvido (AppleALC, layout 13)
+- [x] **Áudio** — Saída de áudio interno e fones de ouvido (AppleALC, layout 14)
 - [x] **Wi-Fi** — Redes wireless Intel via AirportItlwm
 - [x] **Bluetooth** — Pairing e conectividade Bluetooth Intel
 - [x] **Ethernet** — Cabo de rede Realtek RTL8111
