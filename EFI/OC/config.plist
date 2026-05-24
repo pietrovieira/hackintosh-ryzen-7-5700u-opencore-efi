@@ -2001,7 +2001,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 -vi2c-force-polling</string>
+				<string>alcid=14 keepsyms=1 -vi2c-force-polling</string>
 				<key>csr-active-config</key>
 				<data>
 				AwoAAA==

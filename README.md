@@ -39,7 +39,7 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 |------------|--------|
 | **CPU** | AMD Ryzen 7 5700U (8C/16T, Zen 2 / Renoir) |
 | **iGPU** | AMD Radeon Vega Series (Renoir/Cezanne) |
-| **Áudio** | Realtek ALC (layout-id: `13`) |
+| **Áudio** | Realtek ALC256 (layout-id: `13`) |
 | **Wi-Fi** | Intel Wireless (AirportItlwm) |
 | **Bluetooth** | Intel Bluetooth (IntelBluetoothFirmware) |
 | **Ethernet** | Realtek RTL8111 |
@@ -109,12 +109,12 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 - Com o Ventura 13 rodando estável, faça a atualização pelo **System Settings → General → Software Update**.
 - **Não atualize diretamente da instalação limpa** — a atualização OTA (Over-The-Air) a partir de um sistema funcional é muito mais segura.
 
-### Boot-args recomendados
+### Boot-args
 ```
--v debug=0x100 keepsyms=1 -vi2c-force-polling
+alcid=14 keepsyms=1 -vi2c-force-polling
 ```
 
-> 💡 Dica: Remova `-v` após confirmar que tudo funciona para ocultar o modo verbose.
+> ✅ Modo verbose removido — boot limpo sem logs na tela.
 
 ---
 
