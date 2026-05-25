@@ -55,7 +55,7 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 ## ✅ O que Funciona
 
 - [x] **Aceleração Gráfica** — iGPU AMD Vega com suporte completo via NootedRed
-- [x] **Áudio** — Saída de áudio interno e fones de ouvido (AppleALC, `alcid=14`)
+- [x] **Áudio** — Saída de áudio interno e fones de ouvido (AppleALC, `alcid=21`)
 - [x] **Wi-Fi** — Redes wireless Intel via AirportItlwm
 - [x] **Bluetooth** — Pairing e conectividade Bluetooth Intel
 - [x] **Ethernet** — Cabo de rede Realtek RTL8111
@@ -111,10 +111,13 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 
 ### Boot-args
 ```
-alcid=14 keepsyms=1 -vi2c-force-polling
+alcid=21 keepsyms=1 -vi2c-force-polling unfairgva=1 -btlfxallowanyaddr
 ```
 
 > ✅ Modo verbose removido — boot limpo sem logs na tela.
+>
+> - `unfairgva=1` — Melhora compatibilidade gráfica da iGPU AMD com NootedRed.
+> - `-btlfxallowanyaddr` — Permite endereços MAC variáveis no stack Bluetooth Intel (macOS 12+).
 
 ---
 
@@ -156,7 +159,7 @@ Certifique-se de configurar o BIOS/UEFI do seu laptop antes de iniciar:
 | `BrightnessKeys.kext` | 1.0.4 | Teclas de brilho |
 | `VoodooPS2Controller.kext` | 2.3.8 | Teclado e trackpad PS/2 |
 | `VoodooI2C.kext` | 2.9.1 | Framework I2C |
-| `VoodooI2CHID.kext` | 1.0 | Dispositivos I2C HID |
+| `VoodooI2CHID.kext` | 1.0 | Dispositivos I2C HID (trackpad) |
 | `USBToolBox.kext` | 1.2.0 | Mapeamento de portas USB |
 | `UTBDefault.kext` | 1.0 | Default map para USBToolBox |
 | `GenericUSBXHCI.kext` | 1.3.0b2 | Driver XHCI genérico |
@@ -216,6 +219,23 @@ Cole os valores gerados no `config.plist`:
 - [OpenIntelWireless](https://github.com/OpenIntelWireless) — AirportItlwm e IntelBluetoothFirmware.
 - [Dortania](https://dortania.github.io/) — OpenCore Install Guide.
 - [corpnewt](https://github.com/corpnewt) — GenSMBIOS e ferramentas essenciais.
+
+---
+
+## 🔧 Ferramentas Adicionais
+
+### `simplificar-macos.sh`
+Script incluído no repositório para desabilitar animações do macOS e melhorar a fluidez em hardware AMD com NootedRed. Executar após a instalação:
+
+```bash
+chmod +x simplificar-macos.sh
+./simplificar-macos.sh
+```
+
+> ⚠️ **Requer reinicialização** para todas as mudanças terem efeito. Para reverter, siga as instruções no final do script.
+
+### `ALC256-Layout-Reference.md`
+Documento de referência com os layout-ids testados para o codec **Realtek ALC256** deste laptop. Consulte caso precise ajustar o `alcid` nos boot-args.
 
 ---
 
