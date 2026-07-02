@@ -225,30 +225,6 @@
 				AQ==
 				</data>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x6)</key>
-			<dict>
-				<key>layout-id</key>
-				<data>
-				FQAAAA==
-				</data>
-				<key>alc-layout-id</key>
-				<data>
-				FQAAAA==
-				</data>
-				<key>model</key>
-				<string>Realtek ALC256 Audio Controller</string>
-				<key>hda-gfx</key>
-				<string>onboard-1</string>
-				<key>device_type</key>
-				<string>Audio Controller</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x1)</key>
-			<dict>
-				<key>model</key>
-				<string>AMD Renoir HDMI/DP Audio Controller</string>
-				<key>device_type</key>
-				<string>Audio Controller</string>
-			</dict>
 
 		</dict>
 		<key>Delete</key>
@@ -282,15 +258,15 @@
 				<key>BundlePath</key>
 				<string>AirportItlwm.kext</string>
 				<key>Comment</key>
-				<string>Substituir por AirportItlwm-Sonoma.kext</string>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
 				<key>MaxKernel</key>
-				<string>23.99.99</string>
+				<string>22.99.99</string>
 				<key>MinKernel</key>
-				<string>23.0.0</string>
+				<string>22.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -1844,7 +1820,7 @@
 			<key>DisableRtcChecksum</key>
 			<false/>
 			<key>ExtendBTFeatureFlags</key>
-			<true/>
+			<false/>
 			<key>ExternalDiskIcons</key>
 			<false/>
 			<key>ForceAquantiaEthernet</key>
@@ -2021,7 +1997,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>-lilubetaall alcid=21 keepsyms=1 -vi2c-force-polling unfairgva=1 -btlfxallowanyaddr</string>
+				<string>alcid=14 keepsyms=1 -vi2c-force-polling</string>
 				<key>csr-active-config</key>
 				<data>
 				AwoAAA==
