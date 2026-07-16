@@ -60,7 +60,7 @@ O Ryzen 7 5700U é uma APU da arquitetura **Renoir/Cezanne** com gráficos integ
 - [x] **Bluetooth** — Pairing e conectividade Bluetooth Intel
 - [x] **Ethernet** — Cabo de rede Realtek RTL8111
 - [x] **USB** — Todas as portas USB mapeadas
-- [x] **Touchpad** — Gestos multi-touch via VoodooI2C + VoodooI2CHID
+- [x] **Touchpad** — Gestos multi-touch via VoodooI2C + VoodooI2CHID (ELAN050A, I2C HID only)
 - [x] **Teclado** — Teclas de função, brilho e mídia
 - [x] **Bateria** — Leitura de porcentagem e status
 - [x] **Sensor de Luz Ambiente** — Ajuste automático de brilho
@@ -118,6 +118,20 @@ alcid=21 keepsyms=1 -vi2c-force-polling unfairgva=1 -btlfxallowanyaddr
 >
 > - `unfairgva=1` — Melhora compatibilidade gráfica da iGPU AMD com NootedRed.
 > - `-btlfxallowanyaddr` — Permite endereços MAC variáveis no stack Bluetooth Intel (macOS 12+).
+> - `-vi2c-force-polling` — Trackpad I2C em modo polling (necessário em AMD / Ryzentosh).
+
+### Trackpad (I2C only)
+
+O touchpad deste laptop é **ELAN050A (I2C HID)**. No `config.plist`:
+
+| Plugin | Enabled | Motivo |
+|--------|---------|--------|
+| `VoodooI2C` + `VoodooI2CHID` | ✅ | Stack do trackpad |
+| `VoodooPS2Keyboard` | ✅ | Teclado |
+| `VoodooPS2Trackpad` | ❌ | Conflita com I2C HID |
+| `VoodooPS2Mouse` | ❌ | Segundo ponteiro / input fantasma |
+
+Se um TrackPoint físico (stick) deixar de funcionar, reative só `VoodooPS2Mouse` e teste.
 
 ---
 
@@ -157,7 +171,7 @@ Certifique-se de configurar o BIOS/UEFI do seu laptop antes de iniciar:
 | `SMCBatteryManager.kext` | 1.3.8 | Leitura de bateria |
 | `SMCLightSensor.kext` | 1.3.8 | Sensor de luz ambiente |
 | `BrightnessKeys.kext` | 1.0.4 | Teclas de brilho |
-| `VoodooPS2Controller.kext` | 2.3.8 | Teclado e trackpad PS/2 |
+| `VoodooPS2Controller.kext` | 2.3.8 | Teclado PS/2 (`VoodooPS2Keyboard` only) |
 | `VoodooI2C.kext` | 2.9.1 | Framework I2C |
 | `VoodooI2CHID.kext` | 1.0 | Dispositivos I2C HID (trackpad) |
 | `USBToolBox.kext` | 1.2.0 | Mapeamento de portas USB |
